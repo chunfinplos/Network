@@ -94,7 +94,7 @@ UINT ThreadProc(LPVOID pParam) {
     }
     else result = -1;
 
-    //delete params;
+    delete params;
     delete _Mgr_Network;
 
     PostThread(result);
