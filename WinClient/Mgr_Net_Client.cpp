@@ -10,7 +10,6 @@ extern CWinClientApp _App;
 Mgr_Net_Client::Mgr_Net_Client() {
     _Address.host = ENET_HOST_ANY;
     _Address.port = -1;
-    _Client = nullptr;
     _Peer = nullptr;
 
     assert(!enet_initialize() && "Failed loading ENET");

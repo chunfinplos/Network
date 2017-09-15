@@ -75,8 +75,8 @@ int Mgr_Net_Server::StartServer(int port) {
 
 int Mgr_Net_Server::SendPacket(string data) {
     /* Create a reliable packet of size 7 containing "packet\0" */
-    ENetPacket * packet = enet_packet_create(data.c_str(), strlen(data.c_str()) + 1,
-                                             ENET_PACKET_FLAG_RELIABLE);
+    ENetPacket* packet = enet_packet_create(data.c_str(), strlen(data.c_str()) + 1,
+                                            ENET_PACKET_FLAG_RELIABLE);
     if (_Peer) enet_peer_send(_Peer, 1, packet);
     return 0;
 }

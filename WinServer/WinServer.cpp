@@ -15,7 +15,7 @@ END_MESSAGE_MAP()
 using namespace std;
 
 CWinServerApp _App;
-CWinServerDlg* _pDialog;
+CWinServerDlg* _pDialog = nullptr;
 volatile int _State = 2;
 
 /************************* COMMUNICATION BETWEEN THREADS *****************************************/
@@ -53,7 +53,7 @@ public:
 ConcurrentQueue _Queue;
 
 /************************************** THREAD ***************************************************/
-CWinThread* _Thread;
+CWinThread* _Thread = nullptr;
 
 void PrintMessage(string msg);
 void PrintMessage(string msg) {
