@@ -37,13 +37,13 @@ void Mgr_Net_Client::Tick(float DeltaSeconds) {
             //    break;
             case ENET_EVENT_TYPE_RECEIVE:
                 ss << "PACKET: Size(" << _Event.packet->dataLength << "), Data["
-                    << _Event.packet->data << "], Peer(" << _Event.peer->data << "), Channel: "
+                    << _Event.packet->data << "], Peer(" << (char*)_Event.peer->data << "), Channel: "
                     << (unsigned int)_Event.channelID;
 
                 enet_packet_destroy(_Event.packet);
                 break;
             case ENET_EVENT_TYPE_DISCONNECT:
-                ss << "DISCONNECTED: " << _Event.peer->data;
+                ss << "DISCONNECTED: " << (char*)_Event.peer->data;
                 _Event.peer->data = NULL;
                 _App.OnDisconnected();
             default:

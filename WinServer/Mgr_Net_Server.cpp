@@ -42,7 +42,7 @@ void Mgr_Net_Server::Tick(float DeltaSeconds) {
                 break;
             case ENET_EVENT_TYPE_RECEIVE:
                 ss << "PACKET: Size(" << _Event.packet->dataLength << "), Data["
-                   << _Event.packet->data << "], Peer(" << _Event.peer->data << "), Channel: "
+                   << _Event.packet->data << "], Peer(" << (char*)_Event.peer->data << "), Channel: "
                    << (unsigned int)_Event.channelID;
                 
                 /* Clean up the packet now that we're done using it. */
@@ -50,7 +50,7 @@ void Mgr_Net_Server::Tick(float DeltaSeconds) {
                 break;
 
             case ENET_EVENT_TYPE_DISCONNECT:
-                ss << "DISCONNECTED: " << _Event.peer->data;
+                ss << "DISCONNECTED: " << (char*)_Event.peer->data;
                 /* Reset the peer's client information. */
                 _Event.peer->data = NULL;
                 _Peer = nullptr;
